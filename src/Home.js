@@ -17,7 +17,15 @@ const Home = () => {
   useEffect(()=>{
 	  console.log('use effect ran!');
 	  console.log(blogs);
-  });
+  }, []);
+	
+  /* --	The useEffect() function might have a second parameter. This parameter is
+	   	an array, and each one of its element is a dependency. 
+     --	When the useEffect() function doesn't have this second parameter, 
+  		it always renders all variables of the page.
+	 -- When the useEffect() function has no dependencies, so the second parameter is an empty array, 
+  		then it just renders variables once at the first time.*/
+    
   return (
     <div className="home">
     	<Bloglist blogs={blogs} title="All Blogs!" handleDelete={handleDelete}/>
