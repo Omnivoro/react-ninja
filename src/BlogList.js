@@ -1,4 +1,4 @@
-const Bloglist = ({blogs, title, handleDelete}) =>{
+const BlogList = ({blogs, title, handleDelete}) =>{
 	
 	
 	return(
@@ -13,4 +13,4 @@ const Bloglist = ({blogs, title, handleDelete}) =>{
 	</div>);
 }
 
-export default Bloglist
+export default BlogList
