@@ -1,27 +1,23 @@
-import {useState, useEffect} from 'react';
-import BlogList from './BlogList';
-import axios from 'axios';
-
+import { useEffect, useState } from "react";
+import BlogList from "./BlogList";
 
 const Home = () => {
-	
-  const [blogs, setBlogs] = useState([]);
+  const [blogs, setBlogs] = useState(null)
 
-  const handleDelete = (id) =>{
-	  const newBlogs = blogs.filter((blog)=>blog.id !== id);
-	  setBlogs(newBlogs);
-  }
-  
-  useEffect(()=>{
-	  axios.get('https://jsonplaceholder.typicode.com/posts')
-		  .then(res => setBlogs(res.data))
-		  .catch(err => console.log(err));
-  },[]);
+  useEffect(() => {
+    fetch('https://jsonplaceholder.typicode.com/posts')
+      .then(res => {
+        return res.json();
+      })
+      .then(data => {
+        setBlogs(data);
+      })
+  }, [])
 
   return (
     <div className="home">
-    	<BlogList blogs={blogs} title="All Blogs!" handleDelete={handleDelete}/>
-	</div>
+      {blogs && <BlogList blogs={blogs} />}
+    </div>
   );
 }
  
