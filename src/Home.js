@@ -7,14 +7,14 @@ const Home = () => {
 
   useEffect(() => {
     setTimeout(() => {
-      fetch('https://jsonplaceholder.typicode.com/posts')
+      fetch('')
       .then(res => {
         return res.json();
       })
       .then(data => {
         setIsPending(false);
         setBlogs(data);
-      })
+      }).catch(err => console.log(err))
     }, 1000);
   }, [])
 
