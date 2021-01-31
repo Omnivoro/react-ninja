@@ -7,8 +7,12 @@ const Home = () => {
 
   useEffect(() => {
     setTimeout(() => {
-      fetch('')
+      fetch('https://jsonplaceholder.typicode.com/posts')
       .then(res => {
+		console.log(res);
+		//if(!res.ok){
+		  
+		//}
         return res.json();
       })
       .then(data => {
