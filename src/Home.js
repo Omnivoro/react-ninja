@@ -7,12 +7,11 @@ const Home = () => {
 
   useEffect(() => {
     setTimeout(() => {
-      fetch('https://jsonplaceholder.typicode.com/posts')
+      fetch('https://jsonplaceholder.typicode.com/post###')
       .then(res => {
-		console.log(res);
-		//if(!res.ok){
-		  
-		//}
+		if(!res.ok){
+			throw Error("Could not fetch the data for that resource!");  
+		}
         return res.json();
       })
       .then(data => {
