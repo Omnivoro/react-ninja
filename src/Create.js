@@ -10,7 +10,11 @@ const Create = () =>{
 		e.preventDefault();
 		const blog = {title, body, userId};
 		
-		console.log(blog);
+		fetch('https://jsonplaceholder.typicode.com/posts', {
+			method: 'POST',
+			headers: {"Content-type": "application/json"},
+			body: JSON.stringify(blog),
+		}).then(()=>console.log('New blog added'));
 	}
 	
 	return(
@@ -39,9 +43,6 @@ const Create = () =>{
 				</select>
 				<button>Add Blog</button>
 			</form>
-			<p>{title}</p>
-			<p>{body}</p>
-			<p>{userId}</p>
 		</div>
 	)
 };
