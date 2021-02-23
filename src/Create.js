@@ -5,16 +5,21 @@ const Create = () =>{
 	const [title, setTitle] = useState('');
 	const [body, setBody] = useState('');
 	const [userId, setUserId] = useState('1');
+	const [isPending, setIsPending] = useState(false);
 	
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		const blog = {title, body, userId};
 		
+		setIsPending(true);
 		fetch('https://jsonplaceholder.typicode.com/posts', {
 			method: 'POST',
 			headers: {"Content-type": "application/json"},
 			body: JSON.stringify(blog),
-		}).then(()=>console.log('New blog added'));
+		}).then(()=>{
+			console.log('New blog added');
+			setIsPending(false);
+		});
 	}
 	
 	return(
@@ -41,7 +46,8 @@ const Create = () =>{
 					<option value="1">User id - 1</option>
 					<option value="7">User id - 7</option>
 				</select>
-				<button>Add Blog</button>
+				{!isPending && <button>Add Blog</button>}
+				{isPending && <button disabled>Adding Blog...</button>}
 			</form>
 		</div>
 	)
