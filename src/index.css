@@ -1,3 +1,4 @@
+  
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
 
 /* base styles */
@@ -48,9 +49,8 @@
   color: #f1356d;
   margin-bottom: 8px;
 }
-
 .blog-preview a{
-	text-decoration: none;
+  text-decoration: none;
 }
 
 /* blog details page */
@@ -59,9 +59,16 @@
   color: #f1356d;
   margin-bottom: 10px;
 }
-
 .blog-details div {
   margin: 20px 0;
+}
+.blog-details button {
+  background: #f1356d;
+  color: #fff;
+  border: 0;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
 }
 
 /* create new blog form */
@@ -95,5 +102,3 @@
   border-radius: 8px;
   cursor: pointer;
 }
-
-
